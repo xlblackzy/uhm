@@ -3,270 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>♡ WILL YA? ♡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>Will You Be My Girlfriend? - A Documentary Proposal</title>
     <style>
-        :root {
-            --bg: linear-gradient(135deg, #ffe6f2, #e6f0ff, #f0e6ff);
-            --pink: #ff9ec1;
-            --soft-pink: #ffd1dc;
-            --lavender: #d7b9ff;
-            --text: #5c3f77;
-        }
-
-        * {
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background: var(--bg);
-            background-size: 300% 300%;
-            animation: gradient 12s ease infinite;
-            color: var(--text);
-            overflow-x: hidden;
-            position: relative;
-            transition: all 0.8s ease;
-        }
-
-        @keyframes gradient {
-            0% {background-position: 0% 50%;}
-            50% {background-position: 100% 50%;}
-            100% {background-position: 0% 50%;}
-        }
-
-        .hearts-bg {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-
-        .heart {
-            position: absolute;
-            font-size: 1.8rem;
-            animation: float 12s linear infinite;
-            opacity: 0.7;
-            transform: translateY(100vh);
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-20vh) rotate(720deg);
-            }
-        }
-
-        .container {
-            min-height: 100vh;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Custom gradient background */
+            color: #333;
+            transition: background 0.5s ease; /* Reactive transition */
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            color: var(--pink);
-            margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(255, 158, 193, 0.5);
-        }
-
-        h1 {
-            font-size: 4.5rem;
-            animation: pulse 3s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .btn {
-            padding: 1rem 2.5rem;
-            margin: 1rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        .yes-btn {
-            background: linear-gradient(45deg, #ff9ec1, #ff6b9d);
-            color: white;
-        }
-
-        .no-btn {
-            background: linear-gradient(45deg, #a8d8ea, #7ab8d6);
-            color: white;
-        }
-
-        .yes-btn:hover {
-            transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.5);
-        }
-
-        .no-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .stage {
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
-            animation: fadeIn 1s ease;
-            max-width: 90%;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 90%;
         }
-
-        textarea {
-            width: 100%;
-            max-width: 500px;
-            height: 140px;
-            padding: 1rem;
-            margin: 1.5rem 0;
-            border: 2px solid var(--soft-pink);
-            border-radius: 20px;
-            font-size: 1.1rem;
-            resize: vertical;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(5px);
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e94e77;
         }
-
-        input[type="submit"] {
-            padding: 1rem 3rem;
-            font-size: 1.3rem;
-            background: linear-gradient(45deg, #c19ee6, #a66be6);
-            color: white;
-            border: none;
-            border-radius: 50px;
+        .poll {
+            margin-bottom: 30px;
+        }
+        .poll label {
+            display: block;
+            font-size: 1.2em;
+            margin: 10px 0;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(166, 107, 230, 0.4);
         }
-
-        input[type="submit"]:hover {
-            transform: scale(1.1);
+        .poll input[type="radio"] {
+            margin-right: 10px;
         }
-
-        .hidden {
-            display: none !important;
+        .paragraph {
+            margin-top: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
         }
-
-        .sparkles {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            animation: sparkle 2s infinite;
-            pointer-events: none;
+        .documentary-section {
+            margin-top: 40px;
+            text-align: left;
         }
-
-        @keyframes sparkle {
-            0%,100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.5); }
+        .documentary-section h2 {
+            font-size: 1.8em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .documentary-section p {
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
         }
     </style>
 </head>
 <body>
-
-    <div class="hearts-bg" id="heartsBg"></div>
-
     <div class="container">
-
-        <div id="stage1" class="stage">
-            <h1>♡ Call me spongebob, I am taking you to the beach and make you my Sandy Cheeks?😅 ♡</h1>
-            <button class="btn yes-btn" onclick="nextStage('stage1', 'stage2')">Yes!! ♡</button>
-            <button class="btn no-btn" onclick="forceYes()">Umm... No? 😳</button>
+        <h1>Will You Be My Girlfriend?</h1>
+        <p>A heartfelt proposal presented as a poll in this personal documentary.</p>
+        
+        <!-- Poll Section -->
+        <div class="poll">
+            <h2>The Big Question:</h2>
+            <form id="proposalForm">
+                <label>
+                    <input type="radio" name="answer" value="yes" onclick="changeBackground('yes')"> Yes, I'd love to!
+                </label>
+                <label>
+                    <input type="radio" name="answer" value="no" onclick="changeBackground('no')"> No, but thanks for asking.
+                </label>
+            </form>
         </div>
-
-        <div id="stage1-force" class="stage hidden">
-            <h1>♡ Theres no, NO here ugh😒 ♡</h1>
-            <button class="btn yes-btn" onclick="nextStage('stage1-force', 'stage2')">YES YES YES ♡</button>
-            <button class="btn yes-btn" onclick="nextStage('stage1-force', 'stage2')">Okay... YES! ♡</button>
+        
+        <!-- Space for Paragraph Below -->
+        <div class="paragraph">
+            <h2>Your Message Here</h2>
+            <p>Write a personal paragraph explaining why you're asking, sharing memories, or expressing your feelings. For example: "From the moment we met, you've brought so much joy into my life. Every laugh, every adventure, has made me realize how special you are to me."</p>
         </div>
-
-        <div id="stage2" class="stage hidden">
-            <h1>♡ OMG realyy!!? ♡</h1>
-            <button class="btn yes-btn" onclick="nextStage('stage2', 'stage3')">Yes, I mean it! ♡</button>
-            <button class="btn no-btn" onclick="forceYes2()">No... wait—</button>
-        </div>
-
-        <div id="stage2-force" class="stage hidden">
-            <h1>♡ Are you sure sure sure? ♡</h1>
-            <button class="btn yes-btn" onclick="nextStage('stage2-force', 'stage3')">YES I’M SUPER SURE!! ♡</button>
-            <button class="btn yes-btn" onclick="nextStage('stage2-force', 'stage3')">100% YES!! ♡</button>
-        </div>
-
-        <div id="stage3" class="stage hidden">
-            <h1>♡ Wait...So i have EVERY RIGHT TO CALL YOU MY BABYY BOO!??? ♡</h1>
-        <form>
-
-        </div>
-
-    </div>
-
-    <script>
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = ['❤️','💗','💖','💕','💞','✨','♡'][Math.floor(Math.random()*7)];
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
-            heart.style.animationDelay = Math.random() * 5 + 's';
-            heart.style.fontSize = (Math.random() * 1.2 + 1.1) + 'rem';
-            document.getElementById('heartsBg').appendChild(heart);
-            setTimeout(() => heart.remove(), 15000);
-        }
-
-        function createSparkle(x, y) {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkles';
-            sparkle.style.left = x + 'px';
-            sparkle.style.top = y + 'px';
-            sparkle.style.animationDelay = Math.random() * 0.5 + 's';
-            document.body.appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 2000);
-        }
-
-        setInterval(createHeart, 400);
-
-        document.addEventListener('mousemove', (e) => {
-            if (Math.random() > 0.92) {
-                createSparkle(e.clientX, e.clientY);
-            }
-        });
-
-        function nextStage(current, next) {
-            document.getElementById(current).classList.add('hidden');
-            document.getElementById(next).classList.remove('hidden');
-        }
-
-        function forceYes() {
-            document.getElementById('stage1').classList.add('hidden');
-            document.getElementById('stage1-force').classList.remove('hidden');
-        }
-
-        function forceYes2() {
-            document.getElementById('stage2').classList.add('hidden');
-            document.getElementById('stage2-force').classList.remove('hidden');
-        }
-    </script>
-</body>
-</html>
+        
+        <!-- Etc. Like a Documentary
