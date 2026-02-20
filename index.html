@@ -3,93 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Will You Be My Girlfriend? - A Documentary Proposal</title>
+    <title>💕 Will You Be My Girlfriend? 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Cute+Font&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
+        * {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #ffafbd, #ffc3a0); /* Custom gradient background */
-            color: #333;
-            transition: background 0.5s ease; /* Reactive transition */
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffe6f2, #fff0f5, #f8e1e9);
+            color: #5c3e66;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            text-align: center;
+            overflow-x: hidden;
+            transition: background 1.2s ease;
+            position: relative;
+        }
+        .hearts-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .heart {
+            position: absolute;
+            font-size: 1.2rem;
+            color: rgba(255, 105, 180, 0.6);
+            animation: float 12s infinite linear;
+            user-select: none;
+        }
+        @keyframes float {
+            0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.9; }
+            90%  { opacity: 0.7; }
+            100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
         }
         .container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            width: 90%;
+            background: rgba(255, 245, 250, 0.92);
+            backdrop-filter: blur(10px);
+            padding: 45px 35px;
+            border-radius: 32px;
+            box-shadow: 0 12px 40px rgba(255, 182, 193, 0.35);
+            max-width: 580px;
+            width: 92%;
+            text-align: center;
+            position: relative;
+            border: 2px solid #ffd1dc;
         }
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            color: #e94e77;
+            font-family: 'Cute Font', cursive;
+            font-size: 3.4rem;
+            color: #ff85a2;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
+        }
+        .subtitle {
+            font-size: 1.25rem;
+            color: #ff85a2;
+            margin-bottom: 30px;
+            opacity: 0.9;
         }
         .poll {
-            margin-bottom: 30px;
+            margin: 30px 0;
         }
-        .poll label {
-            display: block;
-            font-size: 1.2em;
-            margin: 10px 0;
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: center;
+        }
+        label {
+            background: #fff0f5;
+            padding: 18px 40px;
+            border-radius: 999px;
+            font-size: 1.3rem;
             cursor: pointer;
+            transition: all 0.4s ease;
+            border: 2px solid #ffb6c1;
+            color: #d6487a;
+            width: 100%;
+            max-width: 360px;
+            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
         }
-        .poll input[type="radio"] {
-            margin-right: 10px;
+        label:hover {
+            transform: translateY(-4px) scale(1.04);
+            background: #ffe4e9;
+            box-shadow: 0 10px 24px rgba(255, 182, 193, 0.4);
         }
-        .paragraph {
-            margin-top: 20px;
-            font-size: 1.1em;
-            line-height: 1.6;
+        input[type="radio"] {
+            display: none;
         }
-        .documentary-section {
-            margin-top: 40px;
+        input[type="radio"]:checked + span {
+            background: linear-gradient(45deg, #ff9ec1, #ff85a2);
+            color: white;
+            border-color: #ff85a2;
+            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
+        }
+        .message {
+            margin: 35px 0;
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: #6b4e71;
+            padding: 0 15px;
+        }
+        .heart-emoji {
+            font-size: 1.6rem;
+            margin: 0 6px;
+        }
+        .documentary {
+            margin-top: 45px;
             text-align: left;
+            background: rgba(255, 240, 245, 0.6);
+            padding: 25px;
+            border-radius: 24px;
+            border: 1px dashed #ffb6c1;
         }
-        .documentary-section h2 {
-            font-size: 1.8em;
-            color: #555;
-            margin-bottom: 10px;
+        .documentary h2 {
+            font-family: 'Cute Font', cursive;
+            color: #ff85a2;
+            font-size: 2.1rem;
+            margin-bottom: 15px;
+            text-align: center;
         }
-        .documentary-section p {
-            font-size: 1em;
-            margin-bottom: 20px;
+        .documentary p {
+            margin-bottom: 14px;
+            color: #7a5b80;
         }
         footer {
             margin-top: 40px;
-            font-size: 0.9em;
-            color: #777;
+            font-size: 0.95rem;
+            color: #c68ab0;
+        }
+        @media (max-width: 500px) {
+            h1 { font-size: 2.8rem; }
+            .container { padding: 35px 25px; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Will You Be My Girlfriend?</h1>
-        <p>A heartfelt proposal presented as a poll in this personal documentary.</p>
-        
-        <!-- Poll Section -->
-        <div class="poll">
-            <h2>The Big Question:</h2>
-            <form id="proposalForm">
-                <label>
-                    <input type="radio" name="answer" value="yes" onclick="changeBackground('yes')"> Yes, I'd love to!
-                </label>
-                <label>
-                    <input type="radio" name="answer" value="no" onclick="changeBackground('no')"> No, but thanks for asking.
-                </label>
-            </form>
+
+<div class="hearts-bg" id="heartsContainer"></div>
+
+<div class="container">
+    <h1>💕 Will You Be My Girlfriend? 💕</h1>
+    <div class="subtitle">pretty please? 🥺🌸</div>
+
+    <div class="poll">
+        <div class="options">
+            <label>
+                <input type="radio" name="answer" value="yes" onclick="react('yes')">
+                <span>Yes!! I'd love to ♡</span>
+            </label>
+            <label>
+                <input type="radio" name="answer" value="maybe" onclick="react('maybe')">
+                <span>Maybe... let's talk more ૮₍ ´ ˘ `₎</span>
+            </label>
+            <label>
+                <input type="radio" name="answer" value="no" onclick="react('no')">
+                <span>No thank you... sorry ๑°⌓°๑</span>
+            </label>
         </div>
-        
-        <!-- Space for Paragraph Below -->
-        <div class="paragraph">
-            <h2>Your Message Here</h2>
-            <p>Write a personal paragraph explaining why you're asking, sharing memories, or expressing your feelings. For example: "From the moment we met, you've brought so much joy into my life. Every laugh, every adventure, has made me realize how special you are to me."</p>
-        </div>
-        
-        <!-- Etc. Like a Documentary
+    </div>
+
+    <div class="message">
+        I've been wanting to ask you this for the longest time<br>
+        because being around you feels like <span class="heart-emoji">🩷</span> sunshine and sparkles every single day <span class="heart-emoji">✨</span><br>
+        You're my favorite person in the whole world ♡
+    </div>
+
+    <div class="documentary">
+        <h2>Our Little Love Story so far ♡</h2>
+        <p>Chapter 1 — The day we met and I instantly knew you were special 🌸</p>
+        <p>Chapter 2 — All the late-night chats, silly memes, and warm hugs ૮₍ ˶• ༝ •˶₎</p>
+        <p>Chapter 3 — Right now... hoping you'll say yes so we can write the cutest next chapter together 💗</p>
+    </div>
+
+    <footer>Made with lots of love and nervous butterflies 🦋💕</footer>
+</div>
+
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = ['♡','💗','🩷','💖','✿','🌸'][Math.floor(Math.random()*6)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (8 + Math.random() * 10) + 's';
+        heart.style.fontSize = (0.9 + Math.random() * 1.4) + 'rem';
+        document.getElementById('heartsContainer').appendChild(heart);
+        setTimeout(() => heart.remove(), 15000);
+    }
+
+    setInterval(createHeart, 800);
+
+    function react(choice) {
+        let gradient;
+        if (choice === 'yes') {
+            gradient = 'linear-gradient(135deg, #ff9ec1, #ffb6c1, #ffe4e1, #fff0f5)';
+        } else if (choice === 'maybe') {
+            gradient = 'linear-gradient(135deg, #e0bbff, #f8e1ff, #ffe6f2)';
+        } else {
+            gradient = 'linear-gradient(135deg, #e0e0e0, #f5f5f5, #e8d9e8)';
+        }
+        document.body.style.background = gradient;
+    }
+</script>
+</body>
+</html>
