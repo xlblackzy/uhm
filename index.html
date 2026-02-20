@@ -1,216 +1,236 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💕 Will You Be My Girlfriend? 💕</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Cute+Font&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Poppins', sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #ffe6f2, #fff0f5, #f8e1e9);
-            color: #5c3e66;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow-x: hidden;
-            transition: background 1.2s ease;
-            position: relative;
-        }
-        .hearts-bg {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none;
-            z-index: -1;
-            overflow: hidden;
-        }
-        .heart {
-            position: absolute;
-            font-size: 1.2rem;
-            color: rgba(255, 105, 180, 0.6);
-            animation: float 12s infinite linear;
-            user-select: none;
-        }
-        @keyframes float {
-            0%   { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10%  { opacity: 0.9; }
-            90%  { opacity: 0.7; }
-            100% { transform: translateY(-150px) rotate(360deg); opacity: 0; }
-        }
-        .container {
-            background: rgba(255, 245, 250, 0.92);
-            backdrop-filter: blur(10px);
-            padding: 45px 35px;
-            border-radius: 32px;
-            box-shadow: 0 12px 40px rgba(255, 182, 193, 0.35);
-            max-width: 580px;
-            width: 92%;
-            text-align: center;
-            position: relative;
-            border: 2px solid #ffd1dc;
-        }
-        h1 {
-            font-family: 'Cute Font', cursive;
-            font-size: 3.4rem;
-            color: #ff85a2;
-            margin-bottom: 12px;
-            text-shadow: 0 2px 8px rgba(255, 105, 180, 0.3);
-        }
-        .subtitle {
-            font-size: 1.25rem;
-            color: #ff85a2;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-        .poll {
-            margin: 30px 0;
-        }
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            align-items: center;
-        }
-        label {
-            background: #fff0f5;
-            padding: 18px 40px;
-            border-radius: 999px;
-            font-size: 1.3rem;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            border: 2px solid #ffb6c1;
-            color: #d6487a;
-            width: 100%;
-            max-width: 360px;
-            box-shadow: 0 4px 12px rgba(255, 182, 193, 0.2);
-        }
-        label:hover {
-            transform: translateY(-4px) scale(1.04);
-            background: #ffe4e9;
-            box-shadow: 0 10px 24px rgba(255, 182, 193, 0.4);
-        }
-        input[type="radio"] {
-            display: none;
-        }
-        input[type="radio"]:checked + span {
-            background: linear-gradient(45deg, #ff9ec1, #ff85a2);
-            color: white;
-            border-color: #ff85a2;
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.4);
-        }
-        .message {
-            margin: 35px 0;
-            font-size: 1.15rem;
-            line-height: 1.7;
-            color: #6b4e71;
-            padding: 0 15px;
-        }
-        .heart-emoji {
-            font-size: 1.6rem;
-            margin: 0 6px;
-        }
-        .documentary {
-            margin-top: 45px;
-            text-align: left;
-            background: rgba(255, 240, 245, 0.6);
-            padding: 25px;
-            border-radius: 24px;
-            border: 1px dashed #ffb6c1;
-        }
-        .documentary h2 {
-            font-family: 'Cute Font', cursive;
-            color: #ff85a2;
-            font-size: 2.1rem;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-        .documentary p {
-            margin-bottom: 14px;
-            color: #7a5b80;
-        }
-        footer {
-            margin-top: 40px;
-            font-size: 0.95rem;
-            color: #c68ab0;
-        }
-        @media (max-width: 500px) {
-            h1 { font-size: 2.8rem; }
-            .container { padding: 35px 25px; }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>A Question in Frames</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      min-height: 100vh;
+      background: #0f0e17;
+      color: #e0e0e0;
+      font-family: 'Inter', system-ui, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      transition: background 1.8s ease;
+    }
+    /* subtle film grain */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.07'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1;
+      mix-blend-mode: overlay;
+    }
+    .container {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 8vh 5vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.2rem, 9vw, 6.8rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: #f8f1e9;
+      line-height: 0.92;
+      margin-bottom: 0.4em;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1.4s forwards 0.3s;
+    }
+    .subtitle {
+      font-size: 1.25rem;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: #b0a8c0;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 1.2s forwards 0.6s;
+    }
+    .question {
+      font-size: 1.9rem;
+      line-height: 1.45;
+      margin: 3rem 0 2.5rem;
+      color: #e8d9c5;
+      font-weight: 400;
+      opacity: 0;
+      animation: fadeUp 1.3s forwards 0.9s;
+    }
+    .poll {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+      margin: 2.5rem 0 4rem;
+    }
+    .option {
+      position: relative;
+      padding: 1.4rem 2rem;
+      border: 1px solid rgba(240, 220, 200, 0.14);
+      border-radius: 12px;
+      background: rgba(20, 18, 28, 0.4);
+      backdrop-filter: blur(10px);
+      cursor: pointer;
+      transition: all 0.5s ease;
+      font-size: 1.25rem;
+      color: #d8cfc4;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 1s forwards;
+    }
+    .option:nth-child(1) { animation-delay: 1.2s; }
+    .option:nth-child(2) { animation-delay: 1.35s; }
+    .option:nth-child(3) { animation-delay: 1.5s; }
+    .option:hover {
+      border-color: rgba(240, 220, 200, 0.35);
+      background: rgba(30, 28, 38, 0.6);
+      transform: translateX(8px);
+    }
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    input[type="radio"]:checked + .option {
+      border-color: #e0b589;
+      background: rgba(50, 40, 60, 0.35);
+      color: #f0e0d0;
+      box-shadow: 0 0 40px rgba(224, 181, 137, 0.15);
+    }
+    .letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      line-height: 1.8;
+      color: #d2c6b8;
+      max-width: 65ch;
+      margin: 0 auto 5rem;
+      opacity: 0;
+      animation: fadeUp 1.4s forwards 1.8s;
+    }
+    .frames {
+      margin-top: 6rem;
+      opacity: 0;
+      animation: fadeUp 1.6s forwards 2.2s;
+    }
+    .frames h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.1rem;
+      color: #c9b29f;
+      margin-bottom: 1.8rem;
+      text-align: center;
+    }
+    .frame {
+      margin-bottom: 2.8rem;
+      padding: 1.8rem;
+      background: rgba(15, 14, 23, 0.5);
+      border-left: 4px solid #8a6f5a;
+      border-radius: 6px;
+    }
+    .frame p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: #b8a999;
+    }
+    footer {
+      margin-top: 8rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: #6a5d7a;
+      letter-spacing: 0.05em;
+    }
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: clamp(2.8rem, 12vw, 5rem); }
+      .question { font-size: 1.55rem; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="hearts-bg" id="heartsContainer"></div>
-
 <div class="container">
-    <h1>💕 Will You Be My Girlfriend? 💕</h1>
-    <div class="subtitle">pretty please? 🥺🌸</div>
+  <h1>A Question<br>in Frames</h1>
+  <div class="subtitle">February 2026</div>
 
-    <div class="poll">
-        <div class="options">
-            <label>
-                <input type="radio" name="answer" value="yes" onclick="react('yes')">
-                <span>Yes!! I'd love to ♡</span>
-            </label>
-            <label>
-                <input type="radio" name="answer" value="maybe" onclick="react('maybe')">
-                <span>Maybe... let's talk more ૮₍ ´ ˘ `₎</span>
-            </label>
-            <label>
-                <input type="radio" name="answer" value="no" onclick="react('no')">
-                <span>No thank you... sorry ๑°⌓°๑</span>
-            </label>
-        </div>
+  <div class="question">
+    I’ve spent months collecting moments — glances, silences, laughter in low light — trying to understand what this feeling really is.<br><br>
+    And now the reel has reached the moment I can’t edit around anymore.
+  </div>
+
+  <div class="poll">
+    <label>
+      <input type="radio" name="answer" value="yes" onclick="setMood('yes')">
+      <div class="option">Yes. I want to be part of the rest of the story.</div>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="talk" onclick="setMood('talk')">
+      <div class="option">I need more time / let’s talk about it.</div>
+    </label>
+    <label>
+      <input type="radio" name="answer" value="no" onclick="setMood('no')">
+      <div class="option">No — this chapter ends here.</div>
+    </label>
+  </div>
+
+  <div class="letter">
+    You already know most of the footage: late drives with no destination, the way you tilt your head when you’re thinking, how your voice changes when it’s just us.<br><br>
+    What you might not know is how many times I’ve rewatched those scenes and still feel my chest tighten the same way.<br><br>
+    So I’m asking — not lightly —<br>
+    Will you be my girlfriend?
+  </div>
+
+  <div class="frames">
+    <h2>Selected Scenes</h2>
+    <div class="frame">
+      <p><strong>Scene 01 — First frame we shared</strong><br>
+      Golden hour. You laughed at something stupid I said and the light caught your face just right. I didn’t know it then, but the camera in my head never stopped rolling after that moment.</p>
     </div>
-
-    <div class="message">
-        I've been wanting to ask you this for the longest time<br>
-        because being around you feels like <span class="heart-emoji">🩷</span> sunshine and sparkles every single day <span class="heart-emoji">✨</span><br>
-        You're my favorite person in the whole world ♡
+    <div class="frame">
+      <p><strong>Scene 17 — The quiet nights</strong><br>
+      No music, no plan. Just your breathing next to me and the city humming far away. I started to understand what home could feel like.</p>
     </div>
-
-    <div class="documentary">
-        <h2>Our Little Love Story so far ♡</h2>
-        <p>Chapter 1 — The day we met and I instantly knew you were special 🌸</p>
-        <p>Chapter 2 — All the late-night chats, silly memes, and warm hugs ૮₍ ˶• ༝ •˶₎</p>
-        <p>Chapter 3 — Right now... hoping you'll say yes so we can write the cutest next chapter together 💗</p>
+    <div class="frame">
+      <p><strong>Scene 42 — Right now</strong><br>
+      I’m pressing record one more time. Hoping you’ll say the word that turns this into something longer than a short film.</p>
     </div>
+  </div>
 
-    <footer>Made with lots of love and nervous butterflies 🦋💕</footer>
+  <footer>directed &amp; edited with nervous hands — 20 February 2026</footer>
 </div>
 
 <script>
-    function createHeart() {
-        const heart = document.createElement('div');
-        heart.className = 'heart';
-        heart.innerHTML = ['♡','💗','🩷','💖','✿','🌸'][Math.floor(Math.random()*6)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (8 + Math.random() * 10) + 's';
-        heart.style.fontSize = (0.9 + Math.random() * 1.4) + 'rem';
-        document.getElementById('heartsContainer').appendChild(heart);
-        setTimeout(() => heart.remove(), 15000);
-    }
-
-    setInterval(createHeart, 800);
-
-    function react(choice) {
-        let gradient;
-        if (choice === 'yes') {
-            gradient = 'linear-gradient(135deg, #ff9ec1, #ffb6c1, #ffe4e1, #fff0f5)';
-        } else if (choice === 'maybe') {
-            gradient = 'linear-gradient(135deg, #e0bbff, #f8e1ff, #ffe6f2)';
-        } else {
-            gradient = 'linear-gradient(135deg, #e0e0e0, #f5f5f5, #e8d9e8)';
-        }
-        document.body.style.background = gradient;
-    }
+function setMood(choice) {
+  let bg = '#0f0e17';
+  if (choice === 'yes') {
+    bg = 'linear-gradient(135deg, #1a0f1a, #2a1a2a, #0f1a2a)';
+  } else if (choice === 'talk') {
+    bg = 'linear-gradient(135deg, #17151f, #1f1a25, #171a20)';
+  } else if (choice === 'no') {
+    bg = 'linear-gradient(135deg, #0f0e17, #171015, #0f0e17)';
+  }
+  document.body.style.background = bg;
+}
 </script>
 </body>
 </html>
