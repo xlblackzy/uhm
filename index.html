@@ -1,17 +1,18 @@
-<!DOCTYPE html>
+aaa<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>♡ WILL YA? ♡</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <title>♡ W..W♡</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: linear-gradient(135deg, #ffe6f2, #e6f0ff, #f0e6ff);
-            --pink: #ff9ec1;
-            --soft-pink: #ffd1dc;
-            --lavender: #d7b9ff;
-            --text: #5c3f77;
+            --bg: linear-gradient(135deg, #2a004a, #4b0082, #3c0066, #1a0033);
+            --neon-pink: #ff69b4;
+            --neon-pink-glow: #ff1493;
+            --soft-pink: #ff9ec1;
+            --text: #ff69b4;
+            --dark-purple: #1a0033;
         }
 
         * {
@@ -24,8 +25,8 @@
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
             background: var(--bg);
-            background-size: 300% 300%;
-            animation: gradient 12s ease infinite;
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
             color: var(--text);
             overflow-x: hidden;
             position: relative;
@@ -49,19 +50,17 @@
 
         .heart {
             position: absolute;
-            font-size: 1.8rem;
-            animation: float 12s linear infinite;
-            opacity: 0.7;
+            font-size: 2rem;
+            animation: float 14s linear infinite;
+            opacity: 0.6;
             transform: translateY(100vh);
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink-glow);
         }
 
         @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-            }
-            100% {
-                transform: translateY(-20vh) rotate(720deg);
-            }
+            0% { transform: translateY(100vh) rotate(0deg); }
+            100% { transform: translateY(-20vh) rotate(720deg); }
         }
 
         .container {
@@ -76,51 +75,63 @@
         }
 
         h1, h2 {
-            font-family: 'Dancing Script', cursive;
-            color: var(--pink);
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-pink);
             margin-bottom: 1.5rem;
-            text-shadow: 0 2px 10px rgba(255, 158, 193, 0.5);
+            text-shadow: 0 0 15px var(--neon-pink-glow), 0 0 30px var(--neon-pink-glow);
+            letter-spacing: 2px;
         }
 
         h1 {
-            font-size: 4.5rem;
-            animation: pulse 3s infinite;
+            font-size: 5rem;
+            font-weight: 900;
+            animation: pulse 2.5s infinite, neon-glow 1.5s infinite alternate;
         }
 
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+            50% { transform: scale(1.06); }
+        }
+
+        @keyframes neon-glow {
+            from { text-shadow: 0 0 10px var(--neon-pink-glow), 0 0 20px var(--neon-pink-glow); }
+            to   { text-shadow: 0 0 20px var(--neon-pink-glow), 0 0 40px var(--neon-pink-glow), 0 0 60px var(--neon-pink-glow); }
         }
 
         .btn {
-            padding: 1rem 2.5rem;
-            margin: 1rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-            border: none;
+            padding: 1.2rem 3rem;
+            margin: 1.2rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Orbitron', sans-serif;
+            border: 2px solid var(--neon-pink);
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 0 20px rgba(255,105,180,0.6);
+            letter-spacing: 1px;
         }
 
         .yes-btn {
-            background: linear-gradient(45deg, #ff9ec1, #ff6b9d);
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
             color: white;
+            text-shadow: 0 0 8px black;
         }
 
         .no-btn {
-            background: linear-gradient(45deg, #a8d8ea, #7ab8d6);
-            color: white;
+            background: linear-gradient(45deg, #4b0082, #8a2be2);
+            color: #ff69b4;
+            border-color: #ff69b4;
         }
 
         .yes-btn:hover {
-            transform: scale(1.15) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.5);
+            transform: scale(1.18) translateY(-6px);
+            box-shadow: 0 0 40px var(--neon-pink-glow);
         }
 
         .no-btn:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
+            box-shadow: 0 0 30px #8a2be2;
         }
 
         .stage {
@@ -130,7 +141,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(40px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -140,27 +151,30 @@
             height: 140px;
             padding: 1rem;
             margin: 1.5rem 0;
-            border: 2px solid var(--soft-pink);
+            border: 2px solid var(--neon-pink);
             border-radius: 20px;
             font-size: 1.1rem;
             resize: vertical;
-            background: rgba(255,255,255,0.7);
-            backdrop-filter: blur(5px);
+            background: rgba(26,0,51,0.6);
+            color: var(--neon-pink);
+            backdrop-filter: blur(6px);
         }
 
         input[type="submit"] {
-            padding: 1rem 3rem;
-            font-size: 1.3rem;
-            background: linear-gradient(45deg, #c19ee6, #a66be6);
+            padding: 1rem 3.5rem;
+            font-size: 1.4rem;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(45deg, #ff1493, #ff69b4);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 8px 20px rgba(166, 107, 230, 0.4);
+            box-shadow: 0 0 25px var(--neon-pink-glow);
         }
 
         input[type="submit"]:hover {
-            transform: scale(1.1);
+            transform: scale(1.12);
+            box-shadow: 0 0 50px var(--neon-pink-glow);
         }
 
         .hidden {
@@ -169,18 +183,27 @@
 
         .sparkles {
             position: absolute;
-            width: 8px;
-            height: 8px;
-            background: white;
+            width: 10px;
+            height: 10px;
+            background: var(--neon-pink);
             border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            animation: sparkle 2s infinite;
+            box-shadow: 0 0 15px var(--neon-pink-glow);
+            animation: sparkle 2.2s infinite;
             pointer-events: none;
         }
 
         @keyframes sparkle {
             0%,100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1.5); }
+            50% { opacity: 0.9; transform: scale(1.8); }
+        }
+
+        /* Background music container */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+            opacity: 0.8;
         }
     </style>
 </head>
@@ -188,38 +211,51 @@
 
     <div class="hearts-bg" id="heartsBg"></div>
 
+    <!-- Background song (YouTube embed - autoplays muted; user can unmute) -->
+    <div class="music-player">
+        <iframe 
+            width="0" 
+            height="0" 
+            src="https://www.youtube.com/embed/GmZsYYI1Vnc?autoplay=1&loop=1&playlist=GmZsYYI1Vnc&mute=1" 
+            title="Doing It Wrong - Drake" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen>
+        </iframe>
+    </div>
+
     <div class="container">
 
         <div id="stage1" class="stage">
-            <h1>♡You know how SpongeBob looks at Sandy like she's the coolest person in Bikini Bottom?
-That's how I look at you.
-Will you be my Sandy... aka my girlfriend? 🐿️🧽.  ♡</h1>
+            <h1>W..W ♡</h1>
             <button class="btn yes-btn" onclick="nextStage('stage1', 'stage2')">Yes!! ♡</button>
             <button class="btn no-btn" onclick="forceYes()">Umm... No? 😳</button>
         </div>
 
         <div id="stage1-force" class="stage hidden">
-            <h1>♡ Please. Ugh either ways u dont have a choice so its YES! ♡</h1>
+            <h1>♡ Please. Either way you don't have a choice — it's YES! ♡</h1>
             <button class="btn yes-btn" onclick="nextStage('stage1-force', 'stage2')">YES YES YES ♡</button>
-            <button class="btn yes-btn" onclick="nextStage('stage1-force', 'stage2')">Okay... YES! ♡</button>
+            <button class="btn yes-btn" onclick="nextStage('stage1-force', 'stage2')">YES! ♡</button>
         </div>
 
         <div id="stage2" class="stage hidden">
-            <h1>♡ Do you really really mean it? a chopped guy like me... ♡</h1>
+            <h1>♡ ...Really? ♡</h1>
             <button class="btn yes-btn" onclick="nextStage('stage2', 'stage3')">Yes, I mean it! ♡</button>
             <button class="btn no-btn" onclick="forceYes2()">No... wait—</button>
         </div>
 
         <div id="stage2-force" class="stage hidden">
-            <h1>♡ As i said you got no choice. ♡</h1>
+            <h1>♡ Told you — no choice. ♡</h1>
             <button class="btn yes-btn" onclick="nextStage('stage2-force', 'stage3')">YES I’M SUPER SURE!! ♡</button>
             <button class="btn yes-btn" onclick="nextStage('stage2-force', 'stage3')">100% YES!! ♡</button>
         </div>
 
         <div id="stage3" class="stage hidden">
-            <h1>♡ Wait...So i have every right to call you mine, my sandy cheeks, my girlfriend!!!?................ ♡</h1>
-        <form>
-
+            <h1>♡ Wait... So you're mine and only mine now.! ♡</h1>
+            <!-- Form was empty — left placeholder -->
+            <form>
+                <!-- Add your form fields here if needed -->
+            </form>
         </div>
 
     </div>
@@ -230,11 +266,11 @@ Will you be my Sandy... aka my girlfriend? 🐿️🧽.  ♡</h1>
             heart.className = 'heart';
             heart.innerHTML = ['❤️','💗','💖','💕','💞','✨','♡'][Math.floor(Math.random()*7)];
             heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.animationDuration = (Math.random() * 8 + 10) + 's';
-            heart.style.animationDelay = Math.random() * 5 + 's';
-            heart.style.fontSize = (Math.random() * 1.2 + 1.1) + 'rem';
+            heart.style.animationDuration = (Math.random() * 10 + 12) + 's';
+            heart.style.animationDelay = Math.random() * 6 + 's';
+            heart.style.fontSize = (Math.random() * 1.4 + 1.2) + 'rem';
             document.getElementById('heartsBg').appendChild(heart);
-            setTimeout(() => heart.remove(), 15000);
+            setTimeout(() => heart.remove(), 18000);
         }
 
         function createSparkle(x, y) {
@@ -242,15 +278,15 @@ Will you be my Sandy... aka my girlfriend? 🐿️🧽.  ♡</h1>
             sparkle.className = 'sparkles';
             sparkle.style.left = x + 'px';
             sparkle.style.top = y + 'px';
-            sparkle.style.animationDelay = Math.random() * 0.5 + 's';
+            sparkle.style.animationDelay = Math.random() * 0.6 + 's';
             document.body.appendChild(sparkle);
-            setTimeout(() => sparkle.remove(), 2000);
+            setTimeout(() => sparkle.remove(), 2200);
         }
 
-        setInterval(createHeart, 400);
+        setInterval(createHeart, 350);
 
         document.addEventListener('mousemove', (e) => {
-            if (Math.random() > 0.92) {
+            if (Math.random() > 0.9) {
                 createSparkle(e.clientX, e.clientY);
             }
         });
